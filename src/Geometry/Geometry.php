@@ -6,6 +6,7 @@ namespace ASanikovich\LaravelSpatial\Geometry;
 
 use ASanikovich\LaravelSpatial\Database\Connection;
 use ASanikovich\LaravelSpatial\Eloquent\GeometryCast;
+use ASanikovich\LaravelSpatial\Enums\AxisOrder;
 use ASanikovich\LaravelSpatial\Exceptions\LaravelSpatialException;
 use ASanikovich\LaravelSpatial\Exceptions\LaravelSpatialJsonException;
 use geoPHP;
@@ -189,12 +190,16 @@ abstract class Geometry implements Castable, Arrayable, Jsonable, JsonSerializab
     {
         $wkt = $this->toWkt();
 
+
         if (! (new Connection())->isSupportAxisOrder($connection)) {
             // @codeCoverageIgnoreStart
             return DB::raw(sprintf("ST_GeomFromText('%s', %d)", $wkt, $this->srid));
             // @codeCoverageIgnoreEnd
+        } else {
+            /** @var AxisOrder $axisOrder */
+            $configAxisOrder = config('laravel-spatial.axisOrder');
+            
+            return DB::raw(sprintf("ST_GeomFromText('%s', %d, 'axis-order=%s')", $wkt, $this->srid, $configAxisOrder));
         }
-
-        return DB::raw(sprintf("ST_GeomFromText('%s', %d, 'axis-order=long-lat')", $wkt, $this->srid));
     }
 }

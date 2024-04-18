@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ASanikovich\LaravelSpatial;
 
+use ASanikovich\LaravelSpatial\Enums\AxisOrder;
 use ASanikovich\LaravelSpatial\Enums\GeometryType;
 use ASanikovich\LaravelSpatial\Exceptions\LaravelSpatialException;
 use Doctrine\DBAL\Types\Type;
@@ -62,11 +63,13 @@ final class LaravelSpatialServiceProvider extends DatabaseServiceProvider
      */
     private function validateConfig(): void
     {
-        /** @var array<class-string<Geometry\Geometry>>|array<string> $config */
-        $config = config('laravel-spatial');
+        /** @var array<class-string<Geometry\Geometry>>|array<string> $configGeometryType */
+        $configGeometryType = config('laravel-spatial.geometryTypes');
+        /** @var AxisOrder $configAxisOrder */
+        $configAxisOrder = config('laravel-spatial.axisOrder');
 
         foreach (GeometryType::cases() as $type) {
-            $configType = $config[$type->value] ?? null;
+            $configType = $configGeometryType[$type->value] ?? null;
             if (! $configType) {
                 throw new LaravelSpatialException(
                     sprintf('Invalid class for geometry type "%s", please check config', $type->value)
@@ -83,6 +86,11 @@ final class LaravelSpatialServiceProvider extends DatabaseServiceProvider
                     $configType,
                 ));
             }
+        }
+
+        if ( ! $configAxisOrder instanceof AxisOrder ) {
+            throw new LaravelSpatialException(
+              "Invalid 'axisOrder' config value. The value must be an instance of AxisOrder enum. Please check config!");
         }
     }
 }

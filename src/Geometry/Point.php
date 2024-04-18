@@ -20,7 +20,7 @@ class Point extends Geometry
 
     public function getWktData(): string
     {
-        return sprintf('%s %s', $this->longitude, $this->latitude);
+        return sprintf('%s %s', $this->latitude, $this->longitude);
     }
 
     /**
@@ -29,8 +29,8 @@ class Point extends Geometry
     public function getCoordinates(): array
     {
         return [
-            $this->longitude,
             $this->latitude,
+            $this->longitude,
         ];
     }
 }
