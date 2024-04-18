@@ -65,7 +65,7 @@ final class LaravelSpatialServiceProvider extends DatabaseServiceProvider
     {
         /** @var array<class-string<Geometry\Geometry>>|array<string> $configGeometryType */
         $configGeometryType = config('laravel-spatial.geometryTypes');
-        /** @var AxisOrder $configAxisOrder */
+        /** @var value-of<AxisOrder> $configAxisOrder */
         $configAxisOrder = config('laravel-spatial.axisOrder');
 
         foreach (GeometryType::cases() as $type) {
@@ -88,7 +88,7 @@ final class LaravelSpatialServiceProvider extends DatabaseServiceProvider
             }
         }
 
-        if ( ! $configAxisOrder instanceof AxisOrder ) {
+        if ( AxisOrder::tryFrom($configAxisOrder) === null ) {
             throw new LaravelSpatialException(
               "Invalid 'axisOrder' config value. The value must be an instance of AxisOrder enum. Please check config!");
         }

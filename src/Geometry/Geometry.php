@@ -196,7 +196,7 @@ abstract class Geometry implements Castable, Arrayable, Jsonable, JsonSerializab
             return DB::raw(sprintf("ST_GeomFromText('%s', %d)", $wkt, $this->srid));
             // @codeCoverageIgnoreEnd
         } else {
-            /** @var AxisOrder $axisOrder */
+            /** @var value-of<AxisOrder> $axisOrder */
             $configAxisOrder = config('laravel-spatial.axisOrder');
             
             return DB::raw(sprintf("ST_GeomFromText('%s', %d, 'axis-order=%s')", $wkt, $this->srid, $configAxisOrder));
