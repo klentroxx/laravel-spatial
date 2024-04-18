@@ -1,16 +1,8 @@
 # Laravel Spatial
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/asanikovich/laravel-spatial.svg?style=flat-square)](https://packagist.org/packages/asanikovich/laravel-spatial)
-[![GitHub Tests Status](https://img.shields.io/github/actions/workflow/status/asanikovich/laravel-spatial/pest.yml?branch=master&label=tests&style=flat-square)](https://github.com/asanikovich/laravel-spatial/actions/workflows/pest.yml?query=branch%3Amaster)
-[![GitHub Tests Coverage Status](https://img.shields.io/codecov/c/github/asanikovich/laravel-spatial?token=E0703O0PPT&style=flat-square)](https://github.com/asanikovich/laravel-spatial/actions/workflows/pest-coverage.yml?query=branch%3Amaster)
-[![GitHub Code Style Status](https://img.shields.io/github/actions/workflow/status/asanikovich/laravel-spatial/phpstan.yml?branch=master&label=code%20style&style=flat-square)](https://github.com/asanikovich/laravel-spatial/actions/workflows/phpstan.yml?query=branch%3Amaster)
-[![GitHub Lint Status](https://img.shields.io/github/actions/workflow/status/asanikovich/laravel-spatial/pint.yml?branch=master&label=lint&style=flat-square)](https://github.com/asanikovich/laravel-spatial/actions/workflows/pint.yml?query=branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/asanikovich/laravel-spatial.svg?style=flat-square)](https://packagist.org/packages/asanikovich/laravel-spatial)
-[![Licence](https://img.shields.io/packagist/l/asanikovich/laravel-spatial.svg?style=flat-square)](https://packagist.org/packages/asanikovich/laravel-spatial)
-
 **This Laravel package allows you to easily work with spatial data types and functions.**
 
-* v2 supports Laravel 10+ and PHP 8.1+
+* v2 supports Laravel 10+, 11+ and PHP 8.1+
 * v1 supports Laravel 8,9 and PHP 8.1+
 
 This package supports MySQL v8 or v5.7, and MariaDB v10.
@@ -22,7 +14,7 @@ This package supports MySQL v8 or v5.7, and MariaDB v10.
 You can install the package via composer:
 
 ```bash
-composer require asanikovich/laravel-spatial
+composer require klentroxx/laravel-spatial
 ```
 
 ### Configuration
@@ -244,3 +236,4 @@ Laravel Spatial is released under The MIT License (MIT). For more information, p
 ## Credits
 
 Originally inspired from [MatanYadaev's laravel-eloquent-spatial package](https://github.com/MatanYadaev/laravel-eloquent-spatial).
+This package is a fork of [Asanikovich's laravel-spatial package](https://github.com/asanikovich/laravel-spatial)

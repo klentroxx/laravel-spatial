@@ -1,12 +1,15 @@
 {
-    "name": "asanikovich/laravel-spatial",
+    "name": "klentroxx/laravel-spatial",
     "description": "Laravel Eloquent spatial package",
-    "homepage": "https://github.com/asanikovich/laravel-spatial",
+    "homepage": "https://github.com/klentroxx/laravel-spatial",
     "license": "MIT",
     "authors": [
         {
             "name": "Aliaksei Sanikovich",
             "email": "asanikovich@gmail.com"
+        },
+        {
+            "name": "Klentroxx"
         }
     ],
     "require": {
