@@ -76,7 +76,8 @@ class GeometryFactory
      */
     private static function getGeometryClass(GeometryType $type, string $geometryClass): string
     {
-        $classFromConfig = config('laravel-spatial.geometryTypes.'.$type->value);
+        $configPath = sprintf('laravel-spatial.geometryTypes.%s', $type->value);
+        $classFromConfig = config($configPath);
         $classFromBase = $type->getBaseGeometryClassName();
 
         if (is_subclass_of($geometryClass, $classFromBase) || is_subclass_of($geometryClass, $classFromConfig)) {
