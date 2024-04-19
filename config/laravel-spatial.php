@@ -13,6 +13,9 @@ return [
      */
     'axisOrder' => AxisOrder::SridDefined->value,
 
+    /**
+     * Overridable Geometry types
+     */
     'geometryTypes' => [
         GeometryType::GEOMETRY_COLLECTION->value => Geometry\GeometryCollection::class,
         GeometryType::LINESTRING->value => Geometry\LineString::class,
