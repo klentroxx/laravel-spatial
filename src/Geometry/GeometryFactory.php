@@ -49,7 +49,7 @@ class GeometryFactory
 
             $class = self::getGeometryClass(GeometryType::POINT, $geometryClass);
 
-            return new $class($geometry->coords[1], $geometry->coords[0], $srid);
+            return new $class($geometry->coords[0], $geometry->coords[1], $srid);
         }
 
         /** @var geoPHPGeometryCollection $geometry */
